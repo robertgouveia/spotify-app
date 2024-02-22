@@ -31,7 +31,7 @@ export default function App() {
         return (
             <>
                 <Profile accessToken={token} profile={profile} setProfile={setProfile}/>
-                <Form setResult={setResult}/>
+                <Form setResult={setResult} token={token}/>
                 <Result result={result} trackList={trackList} setTrackList={setTrackList}/>
                 <Playlist trackList={trackList}/>
             </>

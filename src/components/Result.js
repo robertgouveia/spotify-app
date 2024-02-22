@@ -1,7 +1,7 @@
 import React from "react";
 import Track from "./Track";
 
-export default function Result({result, trackList, setTrackList}){
+export default function Result({result, setResult, trackList, setTrackList}){
     const onAddClick = ({target}, ) => {
         if(!trackList.includes(target.value)){
             setTrackList((prev) => {
@@ -19,13 +19,15 @@ export default function Result({result, trackList, setTrackList}){
     }
 
 
-    return (
-        <section>
-            <ul>
-                {result.map(song => {
-                    return <Track song={song} add={onAddClick} remove={onRemoveClick} trackList={trackList}/>
-                })}
-            </ul>
-        </section>
-    )
+    if(result){
+        return (
+            <section>
+                <ul>
+                    {result.map(song => {
+                        return <Track song={song} add={onAddClick} remove={onRemoveClick} trackList={trackList}/>
+                    })}
+                </ul>
+            </section>
+        )
+    }
 }

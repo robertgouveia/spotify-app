@@ -12,7 +12,6 @@ export default function Profile({accessToken, profile, setProfile}){
     }, [accessToken, setProfile]);
 
     if(profile){
-        console.log(profile)
         return (
             <a href={profile.external_urls.spotify}>
                 <h1 id='profile_name'>{profile.display_name}</h1>
