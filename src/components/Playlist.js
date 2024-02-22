@@ -11,17 +11,15 @@ export default function Playlist({trackList}){
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit}>
-                <input
-                    type="text"
-                    placeholder="Playlist title"
-                    onChange={onTitleChange}
-                    value={title}
-                />
-                <Tracklist trackList={trackList}/>
-                <button type='submit'>Add to Spotify</button>
-            </form>
-        </>
+        <form onSubmit={onSubmit}>
+            <input
+                type="text"
+                placeholder="Playlist title"
+                onChange={onTitleChange}
+                value={title}
+            />
+            <Tracklist trackList={trackList}/>
+            <button type='submit'>Add to Spotify</button>
+        </form>
     )
 }
