@@ -1,19 +1,19 @@
 import React from "react";
 import Track from "./Track";
 
-export default function Result({result, setResult, trackList, setTrackList}){
-    const onAddClick = ({target}, ) => {
-        if(!trackList.includes(target.value)){
+export default function Result({result, trackList, setTrackList}){
+    const onAddClick = (song) => {
+        if(!trackList.includes(song)){
             setTrackList((prev) => {
-                return [target.value, ...prev]
+                return [song, ...prev]
             })
         }
     }
 
-    const onRemoveClick = ({target}) => {
+    const onRemoveClick = (song) => {
         setTrackList((prev) => {
-            return prev.filter(item => {
-                return item !== target.value
+            return prev.filter((item) => {
+                return item.id !== song.id
             })
         })
     }
@@ -24,7 +24,7 @@ export default function Result({result, setResult, trackList, setTrackList}){
             <section>
                 <ul>
                     {result.map(song => {
-                        return <Track song={song} add={onAddClick} remove={onRemoveClick} trackList={trackList}/>
+                        return <Track result={result} song={song} add={onAddClick} remove={onRemoveClick} trackList={trackList}/>
                     })}
                 </ul>
             </section>
