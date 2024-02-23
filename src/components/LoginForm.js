@@ -5,6 +5,7 @@ export default function LoginForm({client_id, redirect_uri}){
         url += '?response_type=token';
         url += '&client_id=' + encodeURIComponent(client_id);
         url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+        url += '&scope=' + encodeURIComponent('playlist-modify-private')
         window.location.href = url;
     }
 

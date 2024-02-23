@@ -1,15 +1,17 @@
 import React, {useEffect} from "react";
 import FetchProfile from "./FetchProfile";
 
-export default function Profile({accessToken, profile, setProfile}){
+export default function Profile({accessToken, profile, setProfile, profile_id}){
 
 
-    useEffect((profile) => {
+    useEffect(() => {
         const getProfile = async () => {
-            setProfile(await FetchProfile(accessToken));
+            const response = await FetchProfile(accessToken);
+            setProfile(response)
+            profile_id(response.id)
         }
         getProfile()
-    }, [accessToken, setProfile]);
+    }, [accessToken, profile_id, setProfile]);
 
     if(profile){
         return (

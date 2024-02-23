@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from "react";
-import Form from "./components/Form";
-import Result from "./components/Result";
-import Playlist from "./components/Playlist";
-import LoginForm from "./components/LoginForm";
-import Profile from "./components/Profile";
-import getToken from "./components/getToken";
+import Form from "./Form";
+import Result from "./Result";
+import Playlist from "./Playlist";
+import LoginForm from "./LoginForm";
+import Profile from "./Profile";
+import getToken from "./getToken";
 
 export default function App() {
     const [result, setResult] = useState([])
     const [trackList, setTrackList] = useState([])
     const [token, setToken] = useState('')
     const [profile, setProfile] = useState()
+    const [profile_id, setProfile_id] = useState('');
     const client_id = '081f3f5c5fb440c08fbae4b62238dc82';
-    const redirect_uri = 'http://localhost:3000/callback';
+    const redirect_uri = 'http://localhost:3000';
 
     useEffect(() => {
         getToken(setToken)
@@ -30,10 +31,10 @@ export default function App() {
     } else {
         return (
             <>
-                <Profile accessToken={token} profile={profile} setProfile={setProfile}/>
+                <Profile accessToken={token} profile={profile} setProfile={setProfile} profile_id={setProfile_id}/>
                 <Form setResult={setResult} token={token}/>
                 <Result result={result} trackList={trackList} setTrackList={setTrackList}/>
-                <Playlist trackList={trackList}/>
+                <Playlist trackList={trackList} user_id={profile_id} token={token}/>
             </>
         );
     }
