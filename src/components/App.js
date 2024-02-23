@@ -12,7 +12,7 @@ export default function App() {
     const [token, setToken] = useState('')
     const [profile, setProfile] = useState()
     const client_id = '081f3f5c5fb440c08fbae4b62238dc82';
-    const redirect_uri = 'http://localhost:3000/callback';
+    const redirect_uri = 'http://localhost:3000';
 
     useEffect(() => {
         getToken(setToken)
