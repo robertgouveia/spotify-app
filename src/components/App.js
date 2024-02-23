@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import Form from "./components/Form";
-import Result from "./components/Result";
-import Playlist from "./components/Playlist";
-import LoginForm from "./components/LoginForm";
-import Profile from "./components/Profile";
-import getToken from "./components/getToken";
+import Form from "./Form";
+import Result from "./Result";
+import Playlist from "./Playlist";
+import LoginForm from "./LoginForm";
+import Profile from "./Profile";
+import getToken from "./getToken";
 
 export default function App() {
     const [result, setResult] = useState([])
