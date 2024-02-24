@@ -16,9 +16,8 @@ export default function Profile({accessToken, profile, setProfile, profile_id}){
     if(profile){
         return (
             <a href={profile.external_urls.spotify}>
+                <p>signed in as:</p>
                 <h1 id='profile_name'>{profile.display_name}</h1>
-                <p>{profile.followers.total}</p>
-                <h2>{profile.country}</h2>
             </a>
         )
     }

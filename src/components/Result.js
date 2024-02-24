@@ -21,13 +21,12 @@ export default function Result({result, trackList, setTrackList}){
 
     if(result){
         return (
-            <section>
-                <ul>
-                    {result.map(song => {
-                        return <Track result={result} song={song} add={onAddClick} remove={onRemoveClick} trackList={trackList}/>
-                    })}
-                </ul>
-            </section>
+            <ul>
+                {result.slice(0,10).map(song => {
+                    return <Track result={result} song={song} add={onAddClick} remove={onRemoveClick}
+                                  trackList={trackList}/>
+                })}
+            </ul>
         )
     }
 }

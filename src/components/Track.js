@@ -7,13 +7,17 @@ export default function Track({ song, add, remove, result, trackList }) {
         });
     };
 
+    console.log(song)
     return (
         <li key={song.id}>
-            {song.name}
-            {song.album['name']}
-            {song.uri}
+            <img src={song.album.images[0].url} alt='album cover' width='60' height='60'/>
+            <div>
+                <h1>{song.name}</h1>
+                {song.album['name']}
+            </div>
             <button value={song.id} onClick={() => duplicate().includes(song) ? remove(song) : add(song)}>
-                {duplicate().includes(song) ? 'remove' : 'add'}
+                {duplicate().includes(song) ? <i className="fa-solid fa-trash"></i> :
+                    <i className="fa-solid fa-plus"></i>}
             </button>
         </li>
     );
