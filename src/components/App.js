@@ -26,16 +26,39 @@ export default function App() {
 
     if(!token){
         return(
-            <LoginForm client_id={client_id} redirect_uri={redirect_uri}/>
+            <>
+                <nav>
+                    <i className="fa-brands fa-spotify"></i><h1>Playlist It</h1>
+                </nav>
+                <section>
+                    <div className='container'>
+                        <h1>Log in to Spotify</h1>
+                        <LoginForm client_id={client_id} redirect_uri={redirect_uri}/>
+                    </div>
+                </section>
+            </>
         )
     } else {
         return (
-            <>
-                <Profile accessToken={token} profile={profile} setProfile={setProfile} profile_id={setProfile_id}/>
-                <Form setResult={setResult} token={token}/>
-                <Result result={result} trackList={trackList} setTrackList={setTrackList}/>
-                <Playlist trackList={trackList} user_id={profile_id} token={token}/>
-            </>
+            <section className='MainUI'>
+                <div className='container_search'>
+                    <div className='search'>
+                        <Form setResult={setResult} token={token}/>
+                    </div>
+                    <div className='results'>
+                        <Result result={result} trackList={trackList} setTrackList={setTrackList}/>
+                    </div>
+                </div>
+                <div className='container_playlist'>
+                    <Playlist trackList={trackList} user_id={profile_id} token={token}/>
+                    <Profile accessToken={token} profile={profile} setProfile={setProfile} profile_id={setProfile_id}/>
+                </div>
+            </section>
         );
     }
 }
+
+//
+//
+//
+//

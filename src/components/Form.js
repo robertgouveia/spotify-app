@@ -32,8 +32,8 @@ export default function Form({setResult, token}){
                 name='song'
                 value={song}
                 onChange={onSongChange}
+                placeholder='What track do you want to add?'
             />
-            <button type='submit'>Search</button>
         </form>
     )
 }

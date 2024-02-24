@@ -11,7 +11,7 @@ export default function LoginForm({client_id, redirect_uri}){
 
     return (
         <form onSubmit={onSubmit}>
-            <button type='submit'>Login With Spotify</button>
+            <button type='submit'>Log in</button>
         </form>
     )
 }
