@@ -6,8 +6,6 @@ export default function Track({ song, add, remove, result, trackList }) {
             return trackList.some(track => track.id === item.id);
         });
     };
-
-    console.log(song)
     return (
         <li key={song.id}>
             <img src={song.album.images[0].url} alt='album cover' width='60' height='60'/>
